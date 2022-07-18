@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrdenesServicioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Equipos">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+          </Key>
+          <Property Name="IdEquipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Equipo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Modelo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Serie" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Fk_Folio" Type="int" />
+        </EntityType>
+        <EntityType Name="OrdenesServicio">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+          </Key>
+          <Property Name="IdFolio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Instalacion" Type="bit" />
+          <Property Name="Mantenimiento" Type="bit" />
+          <Property Name="Revision" Type="bit" />
+          <Property Name="Reparacion" Type="bit" />
+          <Property Name="Garantia" Type="bit" />
+          <Property Name="Poliza" Type="bit" />
+          <Property Name="Configuracion" Type="bit" />
+          <Property Name="Capacitacion" Type="bit" />
+          <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Empresa" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TelCel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sucursal" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Requerimiento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Acciones" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Equipos__Fk_Foli__2E1BDC42">
+          <End Role="OrdenesServicio" Type="Self.OrdenesServicio" Multiplicity="0..1" />
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenesServicio">
+              <PropertyRef Name="IdFolio" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="Fk_Folio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrdenesServicioModelStoreContainer">
+          <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdenesServicio" EntityType="Self.OrdenesServicio" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Equipos__Fk_Foli__2E1BDC42" Association="Self.FK__Equipos__Fk_Foli__2E1BDC42">
+            <End Role="OrdenesServicio" EntitySet="OrdenesServicio" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrdenesServicioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Equipos">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+          </Key>
+          <Property Name="IdEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Equipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Modelo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Serie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fk_Folio" Type="Int32" />
+          <NavigationProperty Name="OrdenesServicio" Relationship="Self.FK__Equipos__Fk_Foli__2E1BDC42" FromRole="Equipos" ToRole="OrdenesServicio" />
+        </EntityType>
+        <EntityType Name="OrdenesServicio">
+          <Key>
+            <PropertyRef Name="IdFolio" />
+          </Key>
+          <Property Name="IdFolio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Instalacion" Type="Boolean" />
+          <Property Name="Mantenimiento" Type="Boolean" />
+          <Property Name="Revision" Type="Boolean" />
+          <Property Name="Reparacion" Type="Boolean" />
+          <Property Name="Garantia" Type="Boolean" />
+          <Property Name="Poliza" Type="Boolean" />
+          <Property Name="Configuracion" Type="Boolean" />
+          <Property Name="Capacitacion" Type="Boolean" />
+          <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelCel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sucursal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Requerimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Equipos" Relationship="Self.FK__Equipos__Fk_Foli__2E1BDC42" FromRole="OrdenesServicio" ToRole="Equipos" />
+        </EntityType>
+        <Association Name="FK__Equipos__Fk_Foli__2E1BDC42">
+          <End Role="OrdenesServicio" Type="Self.OrdenesServicio" Multiplicity="0..1" />
+          <End Role="Equipos" Type="Self.Equipos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdenesServicio">
+              <PropertyRef Name="IdFolio" />
+            </Principal>
+            <Dependent Role="Equipos">
+              <PropertyRef Name="Fk_Folio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OrdenesServicioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Equipos" EntityType="Self.Equipos" />
+          <EntitySet Name="OrdenesServicio" EntityType="Self.OrdenesServicio" />
+          <AssociationSet Name="FK__Equipos__Fk_Foli__2E1BDC42" Association="Self.FK__Equipos__Fk_Foli__2E1BDC42">
+            <End Role="OrdenesServicio" EntitySet="OrdenesServicio" />
+            <End Role="Equipos" EntitySet="Equipos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrdenesServicioModelStoreContainer" CdmEntityContainer="OrdenesServicioEntities">
+          <EntitySetMapping Name="Equipos">
+            <EntityTypeMapping TypeName="OrdenesServicioModel.Equipos">
+              <MappingFragment StoreEntitySet="Equipos">
+                <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+                <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Serie" ColumnName="Serie" />
+                <ScalarProperty Name="Fk_Folio" ColumnName="Fk_Folio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdenesServicio">
+            <EntityTypeMapping TypeName="OrdenesServicioModel.OrdenesServicio">
+              <MappingFragment StoreEntitySet="OrdenesServicio">
+                <ScalarProperty Name="IdFolio" ColumnName="IdFolio" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Instalacion" ColumnName="Instalacion" />
+                <ScalarProperty Name="Mantenimiento" ColumnName="Mantenimiento" />
+                <ScalarProperty Name="Revision" ColumnName="Revision" />
+                <ScalarProperty Name="Reparacion" ColumnName="Reparacion" />
+                <ScalarProperty Name="Garantia" ColumnName="Garantia" />
+                <ScalarProperty Name="Poliza" ColumnName="Poliza" />
+                <ScalarProperty Name="Configuracion" ColumnName="Configuracion" />
+                <ScalarProperty Name="Capacitacion" ColumnName="Capacitacion" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="TelCel" ColumnName="TelCel" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Requerimiento" ColumnName="Requerimiento" />
+                <ScalarProperty Name="Acciones" ColumnName="Acciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

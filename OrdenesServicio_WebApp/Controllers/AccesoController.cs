@@ -26,8 +26,6 @@ namespace OrdenesServicio_WebApp.Controllers
                 Session["Usuario"] = ObjUsuario;
                 return RedirectToAction("Index", "Home");
             }
-            
-            
             return View();
         }
     }

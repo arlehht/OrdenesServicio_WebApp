@@ -1,0 +1,155 @@
+﻿@model OrdenesServicio_WebApp.Models.OrdenesServicio
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrdenesServicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instalacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instalacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mantenimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mantenimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Revision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reparacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reparacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Garantia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Garantia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poliza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poliza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Configuracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Configuracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacitacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelCel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelCel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Requerimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requerimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Acciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Acciones)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFolio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
