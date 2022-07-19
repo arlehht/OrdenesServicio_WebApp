@@ -160,6 +160,7 @@
     </Compile>
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\ViewModel\OrdenesViewModel.cs" />
     <Compile Include="Permisos\PermisosRolAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2166,8 +2167,8 @@
     <Content Include="Content\js\adminlte.min.js.map" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -2447,20 +2448,19 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\OrdenesServicios\Create.cshtml" />
-    <Content Include="Views\OrdenesServicios\Delete.cshtml" />
-    <Content Include="Views\OrdenesServicios\Details.cshtml" />
-    <Content Include="Views\OrdenesServicios\Edit.cshtml" />
-    <Content Include="Views\OrdenesServicios\Index.cshtml" />
     <Content Include="Views\Equipos\Create.cshtml" />
     <Content Include="Views\Equipos\Delete.cshtml" />
     <Content Include="Views\Equipos\Details.cshtml" />
     <Content Include="Views\Equipos\Edit.cshtml" />
     <Content Include="Views\Equipos\Index.cshtml" />
+    <Content Include="Views\OrdenesServicios\Create.cshtml" />
+    <Content Include="Views\OrdenesServicios\Delete.cshtml" />
+    <Content Include="Views\OrdenesServicios\Details.cshtml" />
+    <Content Include="Views\OrdenesServicios\Edit.cshtml" />
+    <Content Include="Views\OrdenesServicios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\example\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -31,6 +31,7 @@
                     <li class="nav-item d-none d-sm-inline-block">
                         @Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })
                     </li>
+                    
                 </ul>
                  @*Right navbar links*@ 
                 <ul class="navbar-nav ml-auto">
@@ -39,6 +40,9 @@
                         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                             <i class="fas fa-expand-arrows-alt"></i>
                         </a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        @Html.ActionLink("Cerrar sesión", "CerrarSesion", "Home", new { @class = "nav-link" })
                     </li>
                 </ul>
             </nav>

@@ -17,7 +17,6 @@ namespace OrdenesServicio_WebApp.Logica
 
             using (SqlConnection conexion = new SqlConnection("Data Source = DESKTOP-GE7QC6U; Initial Catalog = OrdenesServicio; Integrated Security=true"))
             {
-                //Data Source = DESKTOP - GE7QC6U; Initial Catalog = dbRequisiciones; Integrated Security = True
                 string query = "SELECT Nombre, Correo, Contrasenia, FkRol FROM Usuarios WHERE Correo=@pcorreo AND Contrasenia= @pclave";
                 SqlCommand cmd = new SqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@pcorreo", correo);
@@ -42,6 +41,7 @@ namespace OrdenesServicio_WebApp.Logica
             }
 
                 return ObjUsuario;
+            //Si es que encontró al usuario
         }
     }
 }

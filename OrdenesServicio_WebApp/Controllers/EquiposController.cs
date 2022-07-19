@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using OrdenesServicio_WebApp.Models;
+using OrdenesServicio_WebApp.Models.ViewModel;
 
 namespace OrdenesServicio_WebApp.Controllers
 {
@@ -39,7 +40,6 @@ namespace OrdenesServicio_WebApp.Controllers
         // GET: Equipos/Create
         public ActionResult Create()
         {
-            ViewBag.Fk_Folio = new SelectList(db.OrdenesServicio, "IdFolio", "Usuario");
             return View();
         }
 
@@ -50,14 +50,34 @@ namespace OrdenesServicio_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdEquipo,Equipo,Modelo,Serie,Fk_Folio")] Equipos equipos)
         {
+            List<OrdenesViewModel> lst;
+            using (Models.OrdenesServicioEntities db = new Models.OrdenesServicioEntities())
+            {
+                lst = (from d in db.OrdenesServicio
+                       select new OrdenesViewModel
+                       {
+                           Id = d.IdFolio
+                       }).ToList();
+            }
+            List<SelectListItem> items = lst.ConvertAll(d =>
+            {
+                return new SelectListItem()
+                {
+                    Text = d.Id.ToString(),
+                    Value = d.Id.ToString(),
+                    Selected = false
+                };
+            });
+            ViewBag.Items = items;
+
             if (ModelState.IsValid)
             {
                 db.Equipos.Add(equipos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.Fk_Folio = new SelectList(db.OrdenesServicio, "IdFolio", "Usuario", equipos.Fk_Folio);
+            
             return View(equipos);
         }
 

@@ -22,6 +22,7 @@ namespace OrdenesServicio_WebApp.Controllers
             Usuario ObjUsuario = new LO_Usuario().FindUser(correo,clave);
             if (ObjUsuario.Nombre!=null)
             {
+
                 FormsAuthentication.SetAuthCookie(ObjUsuario.Correo, false);
                 Session["Usuario"] = ObjUsuario;
                 return RedirectToAction("Index", "Home");

@@ -100,11 +100,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TelCel)
+            @Html.DisplayNameFor(model => model.TelefonoCelular)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TelCel)
+            @Html.DisplayFor(model => model.TelefonoCelular)
         </dd>
 
         <dt>
@@ -150,6 +150,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFolio }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFolio })
     @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Agregar equipo", "Create", "Equipos", null, new { @class = "nav-link" })
 </p>

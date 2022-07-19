@@ -46,7 +46,7 @@ namespace OrdenesServicio_WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdFolio,Fecha,Instalacion,Mantenimiento,Revision,Reparacion,Garantia,Poliza,Configuracion,Capacitacion,Usuario,Empresa,TelCel,Area,Sucursal,Email,Requerimiento,Acciones")] OrdenesServicio ordenesServicio)
+        public ActionResult Create([Bind(Include = "IdFolio,Fecha,Instalacion,Mantenimiento,Revision,Reparacion,Garantia,Poliza,Configuracion,Capacitacion,Usuario,Empresa,TelefonoCelular,Area,Sucursal,Email,Requerimiento,Acciones")] OrdenesServicio ordenesServicio)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace OrdenesServicio_WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdFolio,Fecha,Instalacion,Mantenimiento,Revision,Reparacion,Garantia,Poliza,Configuracion,Capacitacion,Usuario,Empresa,TelCel,Area,Sucursal,Email,Requerimiento,Acciones")] OrdenesServicio ordenesServicio)
+        public ActionResult Edit([Bind(Include = "IdFolio,Fecha,Instalacion,Mantenimiento,Revision,Reparacion,Garantia,Poliza,Configuracion,Capacitacion,Usuario,Empresa,TelefonoCelular,Area,Sucursal,Email,Requerimiento,Acciones")] OrdenesServicio ordenesServicio)
         {
             if (ModelState.IsValid)
             {
