@@ -11,18 +11,22 @@ namespace OrdenesServicio_WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        //Indica que para visualizar la página debe estar autorizado (logeado)
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
+
         [Authorize]
-        //Indica que para visualizar la página debe estar autorizado
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
+
+        [Authorize]
         [PermisosRol(Rol.Administrador)]
         // Sólo el administrador puede acceder a la página de contacto
         public ActionResult Contact()
@@ -31,12 +35,16 @@ namespace OrdenesServicio_WebApp.Controllers
 
             return View();
         }
+
+        [Authorize]
         public ActionResult CerrarSesion()
         {
             FormsAuthentication.SignOut();
             Session["Usuario"] = null;
             return RedirectToAction("Index","Acceso");
         }
+
+        [Authorize]
         public ActionResult SinPermiso()
         {
             ViewBag.Message = "Usted no tiene permisos para esta sección";

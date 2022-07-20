@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using OrdenesServicio_WebApp.Models;
+using OrdenesServicio_WebApp.Models.ViewModel;
+using OrdenesServicio_WebApp.Controllers;
 
 namespace OrdenesServicio_WebApp.Controllers
 {
@@ -115,6 +118,13 @@ namespace OrdenesServicio_WebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
+        public ActionResult CerrarSesion()
+        {
+            FormsAuthentication.SignOut();
+            Session["Usuario"] = null;
+            return RedirectToAction("Index", "Acceso");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
