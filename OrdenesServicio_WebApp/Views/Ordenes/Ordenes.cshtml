@@ -1,0 +1,223 @@
+﻿@model OrdenesServicio_WebApp.Models.OrdenesServicio
+
+@{
+    ViewBag.Title = "Ordenes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    if (ViewBag.msj != null)
+    {
+        switch (ViewBag.msj)
+        {
+            case "Guardado":
+                <script>alert('Guardado con exito')</script>
+                break;
+
+
+            case "Eliminado":
+                <script>alert('Eliminado con exito')</script>
+                break;
+
+            case "Modificado":
+                <script>alert('Modificado con exito')</script>
+                break;
+        }
+    }
+}
+
+<script>
+
+    function cargarDel(Folio, Fecha, Usuario, Empresa, Telefono, Area, Sucursal, Email, Requerimiento, Acciones) {
+        //Cargar el formulario con los datos seleccionados para eliminarse
+        document.getElementById("folio").value = Folio;
+        document.getElementById("fecha").value = Fecha;
+        document.getElementById("usuario").value = Usuario;
+        document.getElementById("empresa").value = Empresa;
+        document.getElementById("telefono").value = Telefono;
+        document.getElementById("area").value = Area;
+        document.getElementById("sucursal").value = Sucursal;
+        document.getElementById("email").value = Email;
+        document.getElementById("requerimiento").value = Requerimiento;
+        document.getElementById("acciones").value = Acciones;
+
+        $("#Eliminar").show();
+        $("#Editar").hide();
+        $("#Guardar").hide();
+    }
+    function confirmarDel(){
+        //Confirmar eliminación
+        if (confirm("Desea eliminar el registro?")) {
+            document.getElementById("eliminacion").value = "si";
+        } else {
+            document.getElementById("eliminacion").value = "no";
+        }
+    }
+
+    function cargarMod(Folio, Fecha, Usuario, Empresa, Telefono, Area, Sucursal, Email, Requerimiento, Acciones) {
+        //Cargar el formulario con los datos seleccionados para modificarse
+        document.getElementById("folio").value = Folio;
+        document.getElementById("fecha").value = Fecha;
+        document.getElementById("usuario").value = Usuario;
+        document.getElementById("empresa").value = Empresa;
+        document.getElementById("telefono").value = Telefono;
+        document.getElementById("area").value = Area;
+        document.getElementById("sucursal").value = Sucursal;
+        document.getElementById("email").value = Email;
+        document.getElementById("requerimiento").value = Requerimiento;
+        document.getElementById("acciones").value = Acciones;
+
+        $("#Eliminar").hide();
+        $("#Editar").show();
+        $("#Guardar").show();
+    }
+    function confirmarMod() {
+        //Confirmar eliminación
+        if (confirm("Desea modificar el registro?")) {
+            document.getElementById("modificacion").value = "si";
+        } else {
+            document.getElementById("modificacion").value = "no";
+        }
+    }
+
+    //function nuevaOrden(Folio, Fecha, Usuario, Empresa, Telefono, Area, Sucursal, Email, Requerimiento, Acciones) {
+    //    $("#Eliminar").hide();
+    //    $("#Editar").hide();
+    //    $("#Guardar").show();
+    //}
+
+    $(document).ready(function (){
+        $("#btnNuevo").on("click", function () {
+            $("#Eliminar").hide();
+            $("#Editar").hide();
+            $("#Guardar").show();
+        });
+    });
+
+
+</script>
+
+<fieldset>
+    <input type="button" name="btnNuevo" id="btnNuevo" value="Nuevo registro" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+</fieldset>
+   
+
+<div id="Contenido">
+    <table class="table">
+        @*Encabezado*@
+        <thead>
+            <tr>
+                <th>Folio</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Empresa</th>
+                <th>Telefono</th>
+                <th>Area</th>
+                <th>Sucursal</th>
+                <th>Email</th>
+                <th>Requerimiento</th>
+                <th>Acciones</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (OrdenesServicio_WebApp.Models.OrdenesServicio item in ViewBag.data)
+                {
+                    <tr>
+                        <td>@item.Folio</td>
+                        <td>@item.Fecha</td>
+                        <td>@item.Usuario</td>
+                        <td>@item.Empresa</td>
+                        <td>@item.TelCel</td>
+                        <td>@item.Area</td>
+                        <td>@item.Sucursal</td>
+                        <td>@item.Email</td>
+                        <td>@item.Requerimiento</td>
+                        <td>@item.Acciones</td>
+                        <td>
+                            <a href="" onclick="javascript:cargarDel('@item.Folio','@item.Fecha','@item.Usuario','@item.Empresa','@item.TelCel','@item.Area','@item.Sucursal','@item.Email','@item.Requerimiento','@item.Acciones')" data-toggle="modal" data-target="#exampleModal">Eliminar</a>
+                            |
+                            <a href="" onclick="javascript:cargarMod('@item.Folio','@item.Fecha','@item.Usuario','@item.Empresa','@item.TelCel','@item.Area','@item.Sucursal','@item.Email','@item.Requerimiento','@item.Acciones')" data-toggle="modal" data-target="#exampleModal">Modificar</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@*Modal*@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @*Encabezado*@
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Ordenes", "Ordenes", FormMethod.Post, htmlAttributes: new { id = "form1" }))
+                 {
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col">
+                                @Html.LabelFor(x => x.Fecha, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Fecha, htmlAttributes: new { @class = "form-control", id = "fecha" })<br>
+                            </div>
+                            <div class="col">
+                                @Html.LabelFor(x => x.Usuario, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Usuario, htmlAttributes: new { @class = "form-control", id = "usuario" })<br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                @Html.LabelFor(x => x.Empresa, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Empresa, htmlAttributes: new { @class = "form-control", id = "empresa" })<br>
+                            </div>
+                            <div class="col">
+                                @Html.LabelFor(x => x.TelCel, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.TelCel, htmlAttributes: new { @class = "form-control", id = "telefono" })<br>
+                            </div>
+                            <div class="col">
+                                @Html.LabelFor(x => x.Area, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Area, htmlAttributes: new { @class = "form-control", id = "area" })<br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                @Html.LabelFor(x => x.Sucursal, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Sucursal, htmlAttributes: new { @class = "form-control", id = "sucursal" })<br>
+                            </div>
+                            <div class="col">
+                                @Html.LabelFor(x => x.Email, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Email, htmlAttributes: new { @class = "form-control", id = "email" })<br>
+                            </div>
+                        </div>
+                        <div class="row">
+                                @Html.LabelFor(x => x.Requerimiento, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Requerimiento, htmlAttributes: new { @class = "form-control", id = "requerimiento" })<br>
+                        </div>
+                        <div class="row">
+                                @Html.LabelFor(x => x.Acciones, htmlAttributes: new { @class = "label label-info" })<br>
+                                @Html.TextBoxFor(x => x.Acciones, htmlAttributes: new { @class = "form-control", id = "acciones" })<br>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="eliminacion" id="eliminacion" value="">
+                    <input type="hidden" name="modificacion" id="modificacion" value="">
+
+                    <div class="modal-footer">
+                        <input type="submit" name="boton" value="Guardar" id="Guardar" class="btn btn-success">
+                        <input type="submit" name="boton" value="Eliminar" id="Eliminar" onclick="javascript: confirmarDel()" class="btn btn-danger">
+                        <input type="submit" name="boton" value="Modificar" id="Editar" onclick="javascript: confirmarMod()" class="btn btn-info">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                 }
+            </div>
+        </div>
+    </div>
+</div>

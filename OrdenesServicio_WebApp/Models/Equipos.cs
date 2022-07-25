@@ -18,7 +18,7 @@ namespace OrdenesServicio_WebApp.Models
         public string Equipo { get; set; }
         public string Modelo { get; set; }
         public string Serie { get; set; }
-        public int Fk_Folio { get; set; }
+        public Nullable<int> Folio { get; set; }
     
         public virtual OrdenesServicio OrdenesServicio { get; set; }
     }

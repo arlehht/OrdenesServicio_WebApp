@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Data.Entity;
 namespace OrdenesServicio_WebApp.Models
 {
     using System;
@@ -14,25 +15,18 @@ namespace OrdenesServicio_WebApp.Models
     
     public partial class OrdenesServicio
     {
+        //public partial class OrdenesServicio : DbContext
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public OrdenesServicio()
         {
             this.Equipos = new HashSet<Equipos>();
         }
     
-        public int IdFolio { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public bool Instalacion { get; set; }
-        public bool Mantenimiento { get; set; }
-        public bool Revision { get; set; }
-        public bool Reparacion { get; set; }
-        public bool Garantia { get; set; }
-        public bool Poliza { get; set; }
-        public bool Configuracion { get; set; }
-        public bool Capacitacion { get; set; }
+        public int Folio { get; set; }
+        public System.DateTime Fecha { get; set; }
         public string Usuario { get; set; }
         public string Empresa { get; set; }
-        public string TelefonoCelular { get; set; }
+        public string TelCel { get; set; }
         public string Area { get; set; }
         public string Sucursal { get; set; }
         public string Email { get; set; }

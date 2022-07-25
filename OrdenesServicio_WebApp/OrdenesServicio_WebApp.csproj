@@ -130,9 +130,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccesoController.cs" />
-    <Compile Include="Controllers\EquiposController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrdenesServiciosController.cs" />
+    <Compile Include="Controllers\OrdenesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,7 +159,6 @@
     </Compile>
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\ViewModel\OrdenesViewModel.cs" />
     <Compile Include="Permisos\PermisosRolAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2448,16 +2446,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Equipos\Create.cshtml" />
-    <Content Include="Views\Equipos\Delete.cshtml" />
-    <Content Include="Views\Equipos\Details.cshtml" />
-    <Content Include="Views\Equipos\Edit.cshtml" />
-    <Content Include="Views\Equipos\Index.cshtml" />
-    <Content Include="Views\OrdenesServicios\Create.cshtml" />
-    <Content Include="Views\OrdenesServicios\Delete.cshtml" />
-    <Content Include="Views\OrdenesServicios\Details.cshtml" />
-    <Content Include="Views\OrdenesServicios\Edit.cshtml" />
-    <Content Include="Views\OrdenesServicios\Index.cshtml" />
+    <Content Include="Views\Ordenes\Ordenes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -91,12 +91,7 @@
                                     <p>Contact</p>
                                 </a>
                             </li>
-                            <li class="nav-item d-none d-sm-inline-block">
-                                @Html.ActionLink("Lista de ordenes de servicios", "Index", "OrdenesServicios", null, new { @class = "nav-link" })
-                            </li>
-                            <li class="nav-item d-none d-sm-inline-block">
-                                @Html.ActionLink("Lista de productos", "Index", "Equipos", null, new { @class = "nav-link" })
-                            </li>
+                            @Html.ActionLink("Ordenes", "Ordenes", "Ordenes");
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->

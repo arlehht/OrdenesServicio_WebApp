@@ -11,6 +11,7 @@ namespace OrdenesServicio_WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        
         //Indica que para visualizar la página debe estar autorizado (logeado)
         [Authorize]
         public ActionResult Index()

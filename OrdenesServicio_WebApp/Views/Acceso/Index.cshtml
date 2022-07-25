@@ -6,42 +6,42 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    @Styles.Render("~/Content/css")
-    <!-- Theme style -->
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="container-fluid m-0 vh-100 row justify-content-center align-items-center">
-        <div class="col-sm-4 col-sm-offset-4">
-            <form action="@Url.Action("Index","Acceso")" class="bg-info" style="padding:10px " method="post">
-                <h2>Login</h2>
-                <br>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login</title>
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome Icons -->
+        @Styles.Render("~/Content/css")
+        <!-- Theme style -->
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="container-fluid m-0 vh-100 row justify-content-center align-items-center">
+            <div class="col-sm-4 col-sm-offset-4">
+                <form action="@Url.Action("Index","Acceso")" class="bg-info" style="padding:10px " method="post">
+                    <h2>Login</h2>
+                    <br> 
 
-                <div class="form-group">
-                    <label>Correo:</label>
-                    <input class="form-control" type="email" name="correo">
-                </div>
+                    <div class="form-group">
+                        <label>Correo:</label>
+                        <input class="form-control" type="email" name="correo">
+                    </div>
 
-                <div class="form-group">
-                    <label>Contraseña:</label>
-                    <input class="form-control" type="password" name="clave">
-                </div>
+                    <div class="form-group">
+                        <label>Contraseña:</label>
+                        <input class="form-control" type="password" name="clave">
+                    </div>
 
-                <button type="submit" class="btn btn-success">Ingresar</button>
-            </form>
+                    <button type="submit" class="btn btn-success">Ingresar</button>
+                </form>
+            </div>
         </div>
-    </div>
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/adminlte/js")
-</body>
+        <!-- REQUIRED SCRIPTS -->
+        <!-- jQuery -->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/adminlte/js")
+    </body>
 </html>
