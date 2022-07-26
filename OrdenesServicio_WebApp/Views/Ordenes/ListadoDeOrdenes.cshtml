@@ -1,0 +1,48 @@
+﻿@model OrdenesServicio_WebApp.Models.OrdenesServicio
+
+@{
+    ViewBag.Title = "Órdenes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>@Html.ActionLink("Nueva orden", "Ordenes", "Ordenes", null, new { @class = "btn btn-primary" })</p>
+
+<div class="card-body table-responsive p-0" style="height: 500px;">
+    <table class="table table-head-fixed table-hover text-nowrap">
+        @*Encabezado*@
+        <thead>
+            <tr>
+                <th>Folio</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Empresa</th>
+                <th>Telefono</th>
+                <th>Área</th>
+                <th>Sucursal</th>
+                <th>Email</th>
+                <th>Requerimiento</th>
+                <th>Acciones</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (OrdenesServicio_WebApp.Models.OrdenesServicio item in ViewBag.data)
+                {
+                    <tr>
+                        <td>@item.Folio</td>
+                        <td>@item.Fecha</td>
+                        <td>@item.Usuario</td>
+                        <td>@item.Empresa</td>
+                        <td>@item.TelCel</td>
+                        <td>@item.Area</td>
+                        <td>@item.Sucursal</td>
+                        <td>@item.Email</td>
+                        <td>@item.Requerimiento</td>
+                        <td>@item.Acciones</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
